@@ -10,5 +10,8 @@ public class ApplicationDBContext : DbContext
     }
 
     /* DBSets */
-    public DbSet<User> Users { get; set; } 
+    public DbSet<User> Users { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<Zone> Zones { get; set; }
 }
