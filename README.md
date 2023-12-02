@@ -6,37 +6,37 @@ The TaxiH application is intended for people who are in need of a taxi. The appl
 
 ## PROJECT TECHNOLOGIES & DEPENDENCIES
 
-#### Microsoft SQL Server 
+### Microsoft SQL Server 
 - Version: 16.0
 
-#### .NET 8
+### .NET 8
 - Language: C#
 - Version: 12.0
 
-#### NUGET PACKAGES:
-- ##### AutoMapper
+### NUGET PACKAGES:
+- #### AutoMapper
 - Version: 12.0.1
 
-- ##### AutoMapper.Extensions.Microsoft.DependencyInjection
+- #### AutoMapper.Extensions.Microsoft.DependencyInjection
 - Version: 12.0.1
 
-- ##### FluentValidation
+- #### FluentValidation
 - Version: 11.8.1
 
-- ##### FluentValidation.DependencyInjectionExtensions
+- #### FluentValidation.DependencyInjectionExtensions
 - Version: 11.8.1
 
-- ##### MediatR
+- #### MediatR
 - Version 12.2.0
 
-- ##### Microsoft.EntityFrameworkCore
+- #### Microsoft.EntityFrameworkCore
 - Version: 8.0.0
 
-- ##### Microsoft.EntityFrameworkCore.SqlServer
+- #### Microsoft.EntityFrameworkCore.SqlServer
 - Version: 8.0.0
 
-- ##### Microsoft.EntityFrameworkCore.Tools
+- #### Microsoft.EntityFrameworkCore.Tools
 - Version: 8.0.0
 
-- ##### Swashbuckle.AspNetCore (Swagger)
+- #### Swashbuckle.AspNetCore (Swagger)
 - Version: 6.5.0
