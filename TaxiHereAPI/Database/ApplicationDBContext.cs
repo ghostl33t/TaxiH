@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaxiHereAPI.Models.Domain;
 
 namespace TaxiHereAPI.Database;
 public class ApplicationDBContext : DbContext
@@ -9,4 +10,5 @@ public class ApplicationDBContext : DbContext
     }
 
     /* DBSets */
+    public DbSet<User> Users { get; set; } 
 }
