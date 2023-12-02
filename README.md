@@ -40,3 +40,9 @@ The TaxiH application is intended for people who are in need of a taxi. The appl
 
 - #### Swashbuckle.AspNetCore (Swagger)
 - Version: 6.5.0
+
+
+## CURRENT DB SCHEMA: 
+
+![drawSQL-taxih-export-2023-12-02(2)](https://github.com/ghostl33t/TaxiH/assets/42142523/243636a3-9687-4023-a006-732ba3c5f2bd)
+
