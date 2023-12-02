@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TaxiHereAPI.Database;
 using TaxiHereAPI.Repositories.User;
+using TaxiHereAPI.Services.ResponseService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddScoped<IResponseService, ResponseService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 #endregion
 
