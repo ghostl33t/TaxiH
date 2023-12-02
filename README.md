@@ -42,6 +42,6 @@ The TaxiH application is intended for people who are in need of a taxi. The appl
 - Version: 6.5.0
 
 
-CURRENT DB SCHEMA: 
+## CURRENT DB SCHEMA: 
 
 ![drawSQL-taxih-export-2023-12-02(1)](https://github.com/ghostl33t/TaxiH/assets/42142523/e21be863-cd0d-41ef-8b34-95ab2ffa43e8)
