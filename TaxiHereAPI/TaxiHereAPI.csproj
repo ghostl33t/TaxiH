@@ -4,7 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <Configurations>Debug;Release;Development</Configurations>
+	<MigrationsDir>Database\Migrations</MigrationsDir>
+	<InvariantGlobalization>false</InvariantGlobalization>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Database\" />
     <Folder Include="Models\Domain\" />
     <Folder Include="Models\DTO\" />
     <Folder Include="Services\" />
