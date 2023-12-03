@@ -59,6 +59,24 @@ The TaxiH application is intended for people who are in need of a taxi. The appl
 - New Function: dotnet ef migrations add <F_C_FunctionName> - F for Function ; C for Create
 - Update Function: dotnet ef migrations add <F_U_FunctionName> - F for Function ; U for Update
 
+### MEDIATR:
+#### Usage:
+##### POST / PATCH / DELETE
+1. Create the new Command in the folder 'Commands'
+``` public record Add<Name>Command(DTO dtoInstance) : IRequest; ```
+• DTO dtoInstance - Parameter that will trigger handler
+2. Create the new handler. Inject required repository.
+``` public class Add<Name>Handler : IRequestHandler<Add<Name>Command>
+    async Task IRequestHandler<Add<Name>Command>.Handle(Add<Name>Command request, CancellationToken cancellationToken)
+    {
+      //Method from repository call
+    }
+```
+3. Trigger handler in a Controller:
+```
+   await _mediator.Send(new Add<Name>Command(DTO));
+```  
+
 ## MAUI DOC: 
 - To run properly, update Visual Studio version with neccessary dependencies related to the MAUI.
 - Install HAXM (Turn On or Off Windows Features -> Hyper-V)
