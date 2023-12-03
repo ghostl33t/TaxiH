@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using TaxiHereAPI.Database;
 using TaxiHereAPI.Repositories.User;
