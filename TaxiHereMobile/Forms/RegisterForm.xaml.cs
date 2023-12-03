@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using TaxiHereMobile.Logic.LoginRegister;
 using TaxiHereMobile.Models.DTO;
 
@@ -5,11 +6,13 @@ namespace TaxiHereMobile.Forms;
 
 public partial class RegisterForm : ContentPage
 {
+    private readonly IConfiguration _configuration;
     private readonly ILoginRegister _loginRegisterService;
-    public RegisterForm(ILoginRegister loginRegisterService)
+    public RegisterForm(IConfiguration configuration)
 	{
-		InitializeComponent();
-        _loginRegisterService = loginRegisterService;
+            _configuration = configuration;
+            _loginRegisterService = new LoginRegister(_configuration);
+            InitializeComponent();
     }
 
     private async void btnRegister_Clicked(object sender, EventArgs e)
