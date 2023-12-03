@@ -7,9 +7,11 @@
         <VerticalStackLayout
             Padding="10,0"
             Spacing="30">
-            <Label Text="Hello World">
+            <Label Text="Taxi Here">
                 
             </Label>
+            <Button x:Name="btnLogin" Text="Login"></Button>
+            <Button x:Name="btnRegister" Text="Register" Clicked="btnRegister_Clicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
 
