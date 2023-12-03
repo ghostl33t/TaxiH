@@ -6,7 +6,7 @@ namespace TaxiHereMobile.Forms;
 public partial class RegisterForm : ContentPage
 {
     private readonly ILoginRegister _loginRegisterService;
-	public RegisterForm(ILoginRegister loginRegisterService)
+    public RegisterForm(ILoginRegister loginRegisterService)
 	{
 		InitializeComponent();
         _loginRegisterService = loginRegisterService;

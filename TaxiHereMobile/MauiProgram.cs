@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System.Reflection;
 using TaxiHereMobile.Logic.LoginRegister;
 
 namespace TaxiHereMobile;
@@ -21,8 +23,17 @@ public static class MauiProgram
         try
         {
             ConfigureServices(builder.Services);
+            var a = Assembly.GetExecutingAssembly();
+            using var stream = a.GetManifestResourceStream("TaxiHereMobile.appsettings.json");
 
-            builder.Build();
+            if (stream != null)
+            {
+                var config = new ConfigurationBuilder()
+               .AddJsonStream(stream)
+               .Build();
+                builder.Configuration.AddConfiguration(config);
+            }
+            builder.Services.AddTransient<MainPage>();
         }
         catch (Exception ex)
         {
