@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaxiHereMobile.Forms.RegisterForm"
+             Title="Register Form">
+    <VerticalStackLayout>
+        <Button 
+            x:Name="btnBack" 
+            Text="Back"
+            WidthRequest="80"
+            HeightRequest="40"
+            HorizontalOptions="Start"
+            Margin="0,0,0,40"
+            
+            Clicked="btnBack_Clicked"/>
+        <Label 
+            Padding="0,0,0,0"
+            Text="REGISTER YOUR ACCOUNT"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontFamily=""
+            FontSize="Body"
+            Margin="0,0,0,40"/>
+        
+        <Label 
+            x:Name="lbUsername"
+            Text="Username:"
+            Margin="20,0,20,0"/>
+        <Entry 
+            x:Name="txtUsername"
+            MaxLength="10"
+            Margin="20,0,20,0"/>
+
+        <Label 
+            x:Name="lbPhone"
+            Text="Phone:"
+            Margin="20,0,20,0"/>
+        <Entry 
+            x:Name="txtPhone"
+            MaxLength="20"
+            Margin="20,0,20,0"/>
+
+        <Label 
+            x:Name="lbEmail"
+            Text="Email:"
+            Margin="20,0,20,0"/>
+        <Entry 
+            x:Name="txtEmail"
+            MaxLength="25"
+            Margin="20,0,20,0"/>
+
+        <Label 
+            x:Name="lbPassword"
+            Text="Password:"
+            Margin="20,0,20,0"/>
+        <Entry 
+            x:Name="txtPassword"
+            MaxLength="16"
+            Margin="20,0,20,0"
+            IsPassword="True"/>
+
+        <Button 
+            x:Name="btnRegister" 
+            Text="Register Account"
+            WidthRequest="150"
+            HeightRequest="40"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="0,20,0,0"
+
+            Clicked="btnRegister_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHereAPI", "TaxiHereAPI\TaxiHereAPI.csproj", "{996164CE-9208-40C7-A3D1-C620105BB62E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHereAPI", "TaxiHereAPI\TaxiHereAPI.csproj", "{996164CE-9208-40C7-A3D1-C620105BB62E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHereMobile", "TaxiHereMobile\TaxiHereMobile.csproj", "{0BD5C076-AFCB-4964-AF84-9820E857C4A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{996164CE-9208-40C7-A3D1-C620105BB62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996164CE-9208-40C7-A3D1-C620105BB62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996164CE-9208-40C7-A3D1-C620105BB62E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD5C076-AFCB-4964-AF84-9820E857C4A4}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
