@@ -1,6 +1,4 @@
-﻿using Azure.Core;
-using Azure;
-using MediatR;
+﻿using MediatR;
 using TaxiHereAPI.Queries.UserQueries;
 using TaxiHereAPI.Repositories.User;
 using TaxiHereAPI.Services.ResponseService;
