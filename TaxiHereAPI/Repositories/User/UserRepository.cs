@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using TaxiHereAPI.Database;
 using TaxiHereAPI.Models.DTO;
 
@@ -25,5 +26,35 @@ public class UserRepository : IUserRepository
         {
             throw;
         }
+    }
+
+    public async Task<bool> EmailInUseAsync(string email)
+    {
+        if (await _dbContext.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.Email == email) != null)
+            return true;
+
+        return false;
+    }
+
+    public async Task<bool> PhoneInUseAsync(string phone)
+    {
+        if (await _dbContext.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.Phone == phone) != null)
+            return true;
+
+        return false;
+    }
+
+    public async Task<bool> UsernameInUseAsync(string username)
+    {
+        if (await _dbContext.Users
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.UserName == username) != null)
+            return true;
+
+        return false;
     }
 }

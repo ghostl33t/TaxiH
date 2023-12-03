@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaxiHereAPI.Commands.UserCommands;
 using TaxiHereAPI.Models.DTO;
+using TaxiHereAPI.Queries.UserQueries;
 using TaxiHereAPI.Services.ResponseService;
 
 namespace TaxiHereAPI.Controllers;
@@ -23,11 +24,13 @@ public class UserController : Controller
     {
         try
         {
-            /* 
-                Validations Here 
-            */
-            await _mediator.Send(new AddUserCommand(newUser));
-            return await _responseService.Response(201, "User created successfully!");
+            var validationsCheck = await _mediator.Send(new GetUserOnRegisterDataQuery(newUser));
+            if (validationsCheck.StatusCode != 400)
+            {
+                await _mediator.Send(new AddUserCommand(newUser));
+            }
+
+            return await _responseService.Response(validationsCheck.StatusCode, validationsCheck.Message);
         }
         catch (Exception)
         {
