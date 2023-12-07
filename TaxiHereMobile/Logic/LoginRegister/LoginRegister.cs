@@ -15,22 +15,22 @@ public class LoginRegister : ILoginRegister
     {
         _configuration = configuration;
         _apiRoute = SetConfiguration();
-
-        var handler = new HttpClientHandler();
-        handler.ServerCertificateCustomValidationCallback = ValidateServerCertificate;
-        _httpClient = new HttpClient(handler);
+        _httpClient = new HttpClient();
+        //var handler = new HttpClientHandler();
+        //handler.ServerCertificateCustomValidationCallback = ValidateServerCertificate;
+        //_httpClient = new HttpClient(handler);
     }
-    private static bool ValidateServerCertificate(HttpRequestMessage request, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-    {
-        //Just for the test, import valid certificate!!!!
-        return true;
-    }
+    //private static bool ValidateServerCertificate(HttpRequestMessage request, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+    //{
+    //    //Just for the test, import valid certificate!!!!
+    //    return true;
+    //}
     public string SetConfiguration()
     {
         var settings = _configuration.GetRequiredSection("ApiSettings").Get<Settings>();
         if (settings != null)
         {
-            return settings.RouteRealDeviceLocal;
+            return settings.RouteEmulator;
         }
         return "";
     }
