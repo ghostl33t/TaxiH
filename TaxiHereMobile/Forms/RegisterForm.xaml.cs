@@ -19,7 +19,12 @@ public partial class RegisterForm : ContentPage
     {
         var newAccount = new RegisterDTO(txtUsername.Text ?? "",txtPhone.Text ?? "",txtEmail.Text ?? "",txtPassword.Text ?? "");
         if (await FieldValidations(newAccount))
-            await _loginRegisterService.Register(newAccount);
+        {
+            var registrationResult = await _loginRegisterService.Register(newAccount);
+            var messageHeader = registrationResult.StatusCode == 201 ? "SUCCESS!" : "FAILED";
+            await DisplayAlert(messageHeader, registrationResult.Message, "OK");
+        }
+            
     }
 
     private async void btnBack_Clicked(object sender, EventArgs e)
@@ -45,9 +50,4 @@ public partial class RegisterForm : ContentPage
             
         return true;
     }
-    private bool ValidateEmail(string email) { return false; }
-    private bool ValidatePasswordComplexity(string password) {  return false; }
-    private bool ValidateUserUnique(string userName) {  return false; }
-    private bool ValidateEmailUnique(string email) {  return false; }
-    private bool ValidatePhoneNumber(string phoneNumber) { return false; }
 }

@@ -1,5 +1,4 @@
 ﻿namespace TaxiHereMobile.Models.DTO;
-
 public class RegisterDTO
 {
     public RegisterDTO(string username, string phone, string email, string password)
