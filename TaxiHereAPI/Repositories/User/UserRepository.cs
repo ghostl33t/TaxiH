@@ -22,38 +22,66 @@ public class UserRepository : IUserRepository
             await _dbContext.SaveChangesAsync();
             return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            Console.WriteLine(ex.ToString());
             throw;
         }
     }
 
     public async Task<bool> EmailInUseAsync(string email)
     {
-        if (await _dbContext.Users
+        try
+        {
+            if (await _dbContext.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(s => s.Email == email) != null)
-            return true;
-
+                return true;
+        }
+        catch (Exception ex)
+        {
+            /* Log Errors */
+            Console.WriteLine(ex.ToString());
+            throw;
+        }
+        
         return false;
     }
 
     public async Task<bool> PhoneInUseAsync(string phone)
     {
-        if (await _dbContext.Users
+        try
+        {
+            if (await _dbContext.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(s => s.Phone == phone) != null)
-            return true;
-
+                return true;
+        }
+        catch (Exception ex)
+        {
+            /* Log Errors */
+            Console.WriteLine(ex.ToString());
+            throw;
+        }
+        
         return false;
     }
 
     public async Task<bool> UsernameInUseAsync(string username)
     {
-        if (await _dbContext.Users
+        try
+        {
+            if (await _dbContext.Users
             .AsNoTracking()
             .FirstOrDefaultAsync(s => s.UserName == username) != null)
-            return true;
+                return true;
+        }
+        catch (Exception ex)
+        {
+            /* Log Errors */
+            Console.WriteLine(ex.ToString());
+            throw;
+        }
 
         return false;
     }

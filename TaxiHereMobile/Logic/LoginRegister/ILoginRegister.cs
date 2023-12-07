@@ -1,11 +1,9 @@
 ﻿using TaxiHereMobile.Models.DTO;
 
-namespace TaxiHereMobile.Logic.LoginRegister
+namespace TaxiHereMobile.Logic.LoginRegister;
+public interface ILoginRegister
 {
-    public interface ILoginRegister
-    {
-        public string SetConfiguration();
-        public Task<bool> Login();
-        public Task<bool> Register(RegisterDTO newAccount);
-    }
+    public string SetConfiguration();
+    public Task<ResponseDTO> Login();
+    public Task<ResponseDTO> Register(RegisterDTO newAccount);
 }
