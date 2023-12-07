@@ -112,10 +112,10 @@ public record Add<Name>Command(DTO dtoInstance) : IRequest;
 - 6.Run https://192.168.X.X:XXXXX/swagger/index.html (if Swagger is enabled) to check if the site is secured.
 - 7.In the Firewall, create an inbound rule for ports 45455 and 45456.
 - 8.In the application code, generate the following files/folders (Use the Visual Studio Editor for file creation; otherwise, you'll need to manually modify the .csproj file):
-        - Generate under Platforms/Android: 'xml' and 'raw' folders.
-        - In the 'raw' folder, add the certificate as an existing item (located in Downloads).
-        - In the 'xml' folder, add 'network_security_config.xml'.
-        - Paste the following XML code: [Insert XML code here].
+####### Generate under Platforms/Android: 'xml' and 'raw' folders.
+####### In the 'raw' folder, add the certificate as an existing item (located in Downloads).
+####### In the 'xml' folder, add 'network_security_config.xml'.
+####### Paste the following XML code: [Insert XML code here].
   ```
     <?xml version="1.0" encoding="utf-8"?>
     <network-security-config>
