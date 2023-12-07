@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using TaxiHereMobile.Models.DTO;
+using TaxiHereMobile.Services;
 
 namespace TaxiHereMobile.Logic.LoginRegister;
 public class LoginRegister : ILoginRegister
@@ -11,20 +11,14 @@ public class LoginRegister : ILoginRegister
     private readonly string _apiRoute;
     private readonly IConfiguration _configuration;
     private readonly HttpClient _httpClient;
+    private readonly IRequestService _requestService;
     public LoginRegister(IConfiguration configuration)
     {
         _configuration = configuration;
         _apiRoute = SetConfiguration();
         _httpClient = new HttpClient();
-        //var handler = new HttpClientHandler();
-        //handler.ServerCertificateCustomValidationCallback = ValidateServerCertificate;
-        //_httpClient = new HttpClient(handler);
+        _requestService = new RequestService();
     }
-    //private static bool ValidateServerCertificate(HttpRequestMessage request, X509Certificate2 certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-    //{
-    //    //Just for the test, import valid certificate!!!!
-    //    return true;
-    //}
     public string SetConfiguration()
     {
         var settings = _configuration.GetRequiredSection("ApiSettings").Get<Settings>();
@@ -34,31 +28,25 @@ public class LoginRegister : ILoginRegister
         }
         return "";
     }
-    public Task<bool> Login()
+    public Task<ResponseDTO> Login()
     {
         throw new NotImplementedException();
     }
 
-    public async Task<bool> Register(RegisterDTO newAccount)
+    public async Task<ResponseDTO> Register(RegisterDTO newAccount)
     {
         var requestRoute = _apiRoute + "api/User";
-        var dataContent = JsonSerializer.Serialize(newAccount);
-        var reqBody = new StringContent(dataContent, Encoding.UTF8, "application/json");
+        var reqBody = _requestService.PrepareRequest(newAccount);
         try
         {
             var res = await _httpClient.PostAsync(requestRoute, reqBody);
-            if (res.IsSuccessStatusCode)
-            {
-                var resMessage = res.Content;
-                return true;
-            }
+            var resMessage = await res.Content.ReadAsStringAsync();
+            return new ResponseDTO(res.StatusCode, resMessage);
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.ToString());
             throw;
         }
-        
-        return false;
     }
 }

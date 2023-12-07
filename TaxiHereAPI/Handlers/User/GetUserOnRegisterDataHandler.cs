@@ -28,7 +28,7 @@ public class GetUserOnRegisterDataHandler : IRequestHandler<GetUserOnRegisterDat
         if (ValidationFailed(response)) { return response; }
 
         response.StatusCode = 201;
-        response.Message = $"User '{request.newUser.Email}' created successfully!";
+        response.Message = $"User '{request.newUser.Username}' created successfully!";
 
         return response;
     }
