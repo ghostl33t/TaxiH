@@ -128,11 +128,11 @@ public record Add<Name>Command(DTO dtoInstance) : IRequest;
     	</domain-config>
     </network-security-config>
   ```
-- 9.Press ALT + Left Mouse click to check if the certificate the installation of an certificate is going to start executing. If it does, then it is Ok. 
-- 10.Edit AndroidManifest.xml file (Open it with right click: Open With => Automatic Editor Selector (XML)) to access XML schema. 
-- 11.Add ``` android:networkSecurityConfig="@xml/network_security_config" ``` to the application element.  
-- 12.Sometimes VS could create some random bugs, just exit it and run it again it should resolve those issues. 
-- 13.Test if the application triggers requests. 
+- 9.Press ALT + Left Mouse click to check if the certificate installation starts executing. If it does, then it is OK.
+- 10.Edit the AndroidManifest.xml file (Open it with a right-click: Open With => Automatic Editor Selector (XML)) to access the XML schema.
+- 11.Add android:networkSecurityConfig="@xml/network_security_config" to the application element.
+- 12.Sometimes, Visual Studio could create some random bugs. Just exit it and run it again; it should resolve those issues.
+- 13.Test if the application triggers requests.
 
 ## CURRENT DB SCHEMA: 
 
