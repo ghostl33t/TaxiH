@@ -103,6 +103,37 @@ public record Add<Name>Command(DTO dtoInstance) : IRequest;
 - Andorid
 - IOS
 
+###HTTPS SSL/TSL - ANDROID CERTIFICATION
+- 1.Install the Visual Studio extension from: Conveyor by Keyoti 2022.
+- 2.Run an API; it should be on port 45455/45456 (the original port, such as [7239/5136 or another], should also be available).
+- 3.After the API application starts, the Conveyor window should appear in the left corner.
+- 4.Download the certificate from: http://192.168.X.X:XXXXX/conveyor_root.crt.
+- 5.Install the downloaded certificate on the Emulator or Android Phone.
+- 6.Run https://192.168.X.X:XXXXX/swagger/index.html (if Swagger is enabled) to check if the site is secured.
+- 7.In the Firewall, create an inbound rule for ports 45455 and 45456.
+- 8.In the application code, generate the following files/folders (Use the Visual Studio Editor for file creation; otherwise, you'll need to manually modify the .csproj file):
+        • Generate under Platforms/Android: 'xml' and 'raw' folders.
+        • In the 'raw' folder, add the certificate as an existing item (located in Downloads).
+        • In the 'xml' folder, add 'network_security_config.xml'.
+        • Paste the following XML code: [Insert XML code here].
+  ```
+    <?xml version="1.0" encoding="utf-8"?>
+    <network-security-config>
+    	<domain-config>
+    		<domain includeSubdomains="true">Your IPv4</domain>
+    		<trust-anchors>
+    			<certificates src="@raw/nameOfCertificate - by default converoy_root (without extension)">
+    			</certificates>
+    		</trust-anchors>
+    	</domain-config>
+    </network-security-config>
+  ```
+- 9.Press ALT + Left Mouse click to check if the certificate the installation of an certificate is going to start executing. If it does, then it is Ok. 
+- 10.Edit AndroidManifest.xml file (Open it with right click: Open With => Automatic Editor Selector (XML)) to access XML schema. 
+- 11.Add ``` android:networkSecurityConfig="@xml/network_security_config" ``` to the application element.  
+- 12.Sometimes VS could create some random bugs, just exit it and run it again it should resolve those issues. 
+- 13.Test if the application triggers requests. 
+
 ## CURRENT DB SCHEMA: 
 
 ![drawSQL-taxih-export-2023-12-02(2)](https://github.com/ghostl33t/TaxiH/assets/42142523/243636a3-9687-4023-a006-732ba3c5f2bd)
