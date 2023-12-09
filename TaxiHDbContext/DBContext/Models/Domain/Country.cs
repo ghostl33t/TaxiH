@@ -1,40 +1,38 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TaxiHDbContext.DBContext.Models.Enums;
 
-namespace TaxiHereAPI.Models.Domain;
-public class City
+namespace TaxiHDbContext.DBContext.Models.Domain;
+public class Country
 {
     #region Id
     [Key]
     [Column(TypeName = "bigint")]
-    public long Id { get;set; }
+    public long Id { get; set; }
     #endregion
 
-    #region CityName
+    #region CountryName
     [Required]
     [Column(TypeName = "nvarchar")]
     [MaxLength(50)]
-    public string CityName { get; set; } = string.Empty;
+    public string CountryName { get; set; } = string.Empty;
     #endregion
 
-    #region Country
-    //FK property
-    [ForeignKey("Country")]
-    public long CountryId { get; set; }
-
-    //Navigation property
-    public Country? Country { get; set; } 
+    #region Continent
+    [Required]
+    [Column(TypeName = "smallint")]
+    public Continent Contitnet { get; set; }
     #endregion
 
-    #region CityCode
+    #region CountryCode
     [Required]
     [Column(TypeName = "nvarchar")]
-    [MaxLength(3)]
-    [MinLength(3)]
-    public string CityCode { get; set; } = string.Empty;
+    [MaxLength(5)]
+    [MinLength(5)]
+    public string CountryCode { get; set; } = string.Empty;
     #endregion
 
-    /* This field is set to 'true' if the application is available in the city. */
+    /* This field is 'true' if the application is available in country.*/
     #region Available
     [Column(TypeName = "bit")]
     public bool? Available { get; set; }
@@ -46,3 +44,5 @@ public class City
     public int NumberOfActiveCompanies { get; set; } = 0;
     #endregion
 }
+
+

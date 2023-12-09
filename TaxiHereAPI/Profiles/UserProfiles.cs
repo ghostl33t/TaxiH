@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using TaxiHereAPI.Models.Domain;
-using TaxiHereAPI.Models.DTO;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
+using TaxiHDbContext.DBContext.Models.Domain;
 
 namespace TaxiHereAPI.Profiles;
 public class UserProfiles : Profile

@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace TaxiHereAPI.Migrations
+namespace TaxiHDbContext.DBContext.Migrations
 {
     /// <inheritdoc />
     public partial class CT_Cities : Migration

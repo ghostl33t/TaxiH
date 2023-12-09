@@ -1,4 +1,5 @@
-﻿using TaxiHereMobile.Models.DTO;
+﻿using TaxiHDataTransferObjects.DTOs.ReqResRelated;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 
 namespace TaxiHereMobile.Logic.LoginRegister;
 public interface ILoginRegister

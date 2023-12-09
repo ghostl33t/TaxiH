@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TaxiHereAPI.Models.Domain;
+using TaxiHDbContext.DBContext.Models.Domain;
 
-namespace TaxiHereAPI.Database;
+namespace TaxiHDbContext.DBContext;
 public class ApplicationDBContext : DbContext
 {
     public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)

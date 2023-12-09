@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using TaxiHereAPI.Database;
-using TaxiHereAPI.Models.DTO;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
+using TaxiHDbContext.DBContext;
 
 namespace TaxiHereAPI.Repositories.User;
 public class UserRepository : IUserRepository
@@ -17,7 +17,7 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            var user = _mapper.Map<Models.Domain.User>(newUser);
+            var user = _mapper.Map<TaxiHDbContext.DBContext.Models.Domain.User>(newUser);
             await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
             return true;

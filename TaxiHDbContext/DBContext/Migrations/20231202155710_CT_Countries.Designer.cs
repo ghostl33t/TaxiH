@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TaxiHereAPI.Database;
+using TaxiHDbContext.DBContext;
 
 #nullable disable
 
-namespace TaxiHereAPI.Migrations
+namespace TaxiHDbContext.DBContext.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20231202155710_CT_Countries")]
@@ -25,7 +25,7 @@ namespace TaxiHereAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.Country", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.Country", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace TaxiHereAPI.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.User", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()

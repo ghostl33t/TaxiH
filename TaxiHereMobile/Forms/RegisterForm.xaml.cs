@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHereMobile.Logic.LoginRegister;
-using TaxiHereMobile.Models.DTO;
 
 namespace TaxiHereMobile.Forms;
 

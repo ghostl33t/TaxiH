@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TaxiHereAPI.Database;
+using TaxiHDbContext.DBContext;
 
 #nullable disable
 
-namespace TaxiHereAPI.Migrations
+namespace TaxiHDbContext.DBContext.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20231202144713_InitialMigration")]

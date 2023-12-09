@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TaxiHereAPI.Database;
+using TaxiHDbContext.DBContext;
 
 #nullable disable
 
-namespace TaxiHereAPI.Migrations
+namespace TaxiHDbContext.DBContext.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20231202160858_CT_Zones")]
@@ -25,7 +25,7 @@ namespace TaxiHereAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.City", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.City", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace TaxiHereAPI.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.Country", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.Country", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace TaxiHereAPI.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.User", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,7 +129,7 @@ namespace TaxiHereAPI.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.Zone", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.Zone", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,9 +157,9 @@ namespace TaxiHereAPI.Migrations
                     b.ToTable("Zones");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.City", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.City", b =>
                 {
-                    b.HasOne("TaxiHereAPI.Models.Domain.Country", "Country")
+                    b.HasOne("TaxiHDbContext.DBContext.Models.Domain.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -168,9 +168,9 @@ namespace TaxiHereAPI.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("TaxiHereAPI.Models.Domain.Zone", b =>
+            modelBuilder.Entity("TaxiHDbContext.DBContext.Models.Domain.Zone", b =>
                 {
-                    b.HasOne("TaxiHereAPI.Models.Domain.City", "City")
+                    b.HasOne("TaxiHDbContext.DBContext.Models.Domain.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)

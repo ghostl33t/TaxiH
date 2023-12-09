@@ -1,19 +1,19 @@
 ﻿using MediatR;
+using TaxiHDataTransferObjects.DTOs.ReqResRelated;
 using TaxiHereAPI.Queries.UserQueries;
 using TaxiHereAPI.Repositories.User;
-using TaxiHereAPI.Services.ResponseService;
 
 namespace TaxiHereAPI.Handlers.User;
-public class GetUserOnRegisterDataHandler : IRequestHandler<GetUserOnRegisterDataQuery, ResponseInstance>
+public class GetUserOnRegisterDataHandler : IRequestHandler<GetUserOnRegisterDataQuery, ResponseDTO>
 {
     private readonly IUserRepository _userRepository;
     public GetUserOnRegisterDataHandler(IUserRepository userRepository)
     {
         _userRepository = userRepository;
     }
-    public async Task<ResponseInstance> Handle(GetUserOnRegisterDataQuery request, CancellationToken cancellationToken)
+    public async Task<ResponseDTO> Handle(GetUserOnRegisterDataQuery request, CancellationToken cancellationToken)
     {
-        var response = new ResponseInstance();
+        var response = new ResponseDTO();
 
         var validation = await _userRepository.UsernameInUseAsync(request.newUser.Username);
         response = ValidateField(validation, "Username", request.newUser.Username);
@@ -32,19 +32,19 @@ public class GetUserOnRegisterDataHandler : IRequestHandler<GetUserOnRegisterDat
 
         return response;
     }
-    private ResponseInstance ValidateField(bool validation, string fieldName, string context)
+    private ResponseDTO ValidateField(bool validation, string fieldName, string context)
     {
         if (validation)
         {
-            return new ResponseInstance
+            return new ResponseDTO
             {
                 StatusCode = 400,
                 Message = $"{ fieldName } '{ context }' is already in use."
             };
         }
-        return new ResponseInstance();
+        return new ResponseDTO();
     }
-    private bool ValidationFailed(ResponseInstance res)
+    private bool ValidationFailed(ResponseDTO res)
     {
         if (res.StatusCode == 400)
             return true;

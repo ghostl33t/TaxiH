@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace TaxiHereAPI.Models.Domain;
+namespace TaxiHDbContext.DBContext.Models.Domain;
 public class Zone
 {
     #region Id

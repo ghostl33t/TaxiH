@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TaxiHereAPI.Models.Domain;
+namespace TaxiHDbContext.DBContext.Models.Domain;
 public class User
 {
     #region Id

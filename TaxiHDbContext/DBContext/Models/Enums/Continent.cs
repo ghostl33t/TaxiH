@@ -1,4 +1,4 @@
-﻿namespace TaxiHereAPI.Models.Enums;
+﻿namespace TaxiHDbContext.DBContext.Models.Enums;
 public enum Continent
 {
     Europe = 0,

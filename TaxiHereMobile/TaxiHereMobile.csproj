@@ -82,6 +82,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\TaxiHDataTransferObjects\TaxiHDataTransferObjects.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Forms\RegisterForm.xaml.cs">
 	    <DependentUpon>RegisterForm.xaml</DependentUpon>
 	  </Compile>

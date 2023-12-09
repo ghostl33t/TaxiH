@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Net;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TaxiHereMobile.Models.DTO;
+using TaxiHDataTransferObjects.DTOs.ReqResRelated;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHereMobile.Services;
 
 namespace TaxiHereMobile.Logic.LoginRegister;
