@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using TaxiHereAPI.Database;
+using TaxiHDbContext;
+using TaxiHDbContext.DBContext;
 using TaxiHereAPI.Repositories.User;
 using TaxiHereAPI.Services.ResponseService;
 
@@ -24,16 +25,8 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 #region Database
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
-    var mainConnectionString = builder.Configuration.GetConnectionString("DBConnection");
-    if (mainConnectionString != null)
-    {
-        options.UseSqlServer(mainConnectionString);
-        Console.WriteLine("INFO: Connection with the database established successfuly!");
-    }
-    else
-    {
-        Console.WriteLine("ERROR: Unable to connect to the SQL server.");
-    }
+    var dbConnectionString = TaxiHDbContext.ServiceRegistry.ExtractConnectionString();
+    ServiceRegistry.ConfigureDbContext(options, dbConnectionString);
 });
 #endregion
 

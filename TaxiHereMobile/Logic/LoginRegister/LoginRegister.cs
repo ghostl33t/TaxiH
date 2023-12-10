@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Net;
-using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using TaxiHereMobile.Models.DTO;
+using TaxiHDataTransferObjects.DTOs.ReqResRelated;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHereMobile.Services;
 
 namespace TaxiHereMobile.Logic.LoginRegister;
@@ -18,13 +15,25 @@ public class LoginRegister : ILoginRegister
         _httpClient = new HttpClient();
         _requestService = new RequestService(_configuration);
     }
-    public Task<ResponseDTO> Login()
+    public async Task<ResponseDTO> Login(LoginDTO userCreds)
     {
-        throw new NotImplementedException();
+        var requestRoute = _requestService.PrepareEndPoint(RequestTo.AZFunctions, "LoginFunction");
+        var reqBody = _requestService.PrepareRequest(userCreds);
+        try
+        {
+            var res = await _httpClient.PostAsync(requestRoute,reqBody);
+            var resMessage = await res.Content.ReadAsStringAsync();
+            return new ResponseDTO(res.StatusCode, resMessage);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw;
+        }
     }
     public async Task<ResponseDTO> Register(RegisterDTO newAccount)
     {
-        var requestRoute = _requestService.PrepareEndPoint("api/User");
+        var requestRoute = _requestService.PrepareEndPoint(RequestTo.API,"api/User");
         var reqBody = _requestService.PrepareRequest(newAccount);
         try
         {

@@ -2,7 +2,7 @@
 
 public interface IRequestService
 {
-    public string GetRoute();
-    public string PrepareEndPoint(string endPoint);
+    public string GetRoute(RequestTo reqTo);
+    public string PrepareEndPoint(RequestTo reqTo, string endPoint);
     public StringContent PrepareRequest(object dtoObject);
 }

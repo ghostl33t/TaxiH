@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHereAPI.Commands.UserCommands;
-using TaxiHereAPI.Models.DTO;
 using TaxiHereAPI.Queries.UserQueries;
 using TaxiHereAPI.Services.ResponseService;
 

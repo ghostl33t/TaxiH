@@ -1,4 +1,4 @@
-﻿using TaxiHereAPI.Models.DTO;
+﻿using TaxiHDataTransferObjects.DTOs.UserRelated;
 
 namespace TaxiHereAPI.Repositories.User;
 public interface IUserRepository

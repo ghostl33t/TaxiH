@@ -15,4 +15,9 @@ public partial class MainPage : ContentPage
     {
         Navigation.PushAsync(new RegisterForm(_configuration));
     }
+
+    private void btnLogin_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new LoginForm(_configuration));
+    }
 }
