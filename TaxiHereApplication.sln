@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHereAPI", "TaxiHereAPI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHereMobile", "TaxiHereMobile\TaxiHereMobile.csproj", "{0BD5C076-AFCB-4964-AF84-9820E857C4A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHDataTransferObjects", "TaxiHDataTransferObjects\TaxiHDataTransferObjects.csproj", "{D4E0347F-23E1-47E1-B2FA-66C4F9E3F43C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHDataTransferObjects", "TaxiHDataTransferObjects\TaxiHDataTransferObjects.csproj", "{D4E0347F-23E1-47E1-B2FA-66C4F9E3F43C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHDbContext", "TaxiHDbContext\TaxiHDbContext.csproj", "{38C03050-877C-49F9-99EE-8278B380E7C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHDbContext", "TaxiHDbContext\TaxiHDbContext.csproj", "{38C03050-877C-49F9-99EE-8278B380E7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHFunc", "TaxiHFunc\TaxiHFunc.csproj", "{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{38C03050-877C-49F9-99EE-8278B380E7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38C03050-877C-49F9-99EE-8278B380E7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38C03050-877C-49F9-99EE-8278B380E7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
