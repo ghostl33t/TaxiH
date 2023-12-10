@@ -86,12 +86,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Forms\LoginForm.xaml.cs">
+	    <DependentUpon>LoginForm.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Forms\RegisterForm.xaml.cs">
 	    <DependentUpon>RegisterForm.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Forms\LoginForm.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Forms\RegisterForm.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

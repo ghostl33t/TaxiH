@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHDataTransferObjects", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHDbContext", "TaxiHDbContext\TaxiHDbContext.csproj", "{38C03050-877C-49F9-99EE-8278B380E7C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiHFunc", "TaxiHFunc\TaxiHFunc.csproj", "{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiHFunc", "TaxiHFunc\TaxiHFunc.csproj", "{5B42DF74-F850-4EF2-9E89-1C81EADBD4CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,10 +3,10 @@ using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHDbContext.DBContext;
 
 namespace TaxiHFunc.Repositories.UserRelated;
-public class User : IUser
+public class UserRepository : IUserRepository
 {
     private readonly ApplicationDBContext _dbContext;
-    public User(ApplicationDBContext dbContext)
+    public UserRepository(ApplicationDBContext dbContext)
     {
         _dbContext = dbContext;
     }

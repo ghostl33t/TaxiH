@@ -2,6 +2,7 @@
   "profiles": {
     "TaxiHFunc": {
       "commandName": "Project",
+      "dotnetRunMessages": true,
       "commandLineArgs": "--port 7211",
       "launchBrowser": false
     }

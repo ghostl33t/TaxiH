@@ -11,22 +11,30 @@ public class RequestService : IRequestService
     {
         _configuration = configuration;
     }
-    public string GetRoute()
+    public string GetRoute(RequestTo reqTo)
     {
         var settings = _configuration.GetRequiredSection("ApiSettings").Get<Settings>();
         if (settings != null)
         {
-            return settings.RouteEmulator;
+            if (reqTo == RequestTo.API)
+                return settings.RouteEmulator;
+            if (reqTo == RequestTo.AZFunctions)
+                return settings.RouteAzureFunctions;
         }
         return "";
     }
-    public string PrepareEndPoint(string endPoint)
+    public string PrepareEndPoint(RequestTo reqTo, string endPoint)
     {
-        return GetRoute() + endPoint;
+        return GetRoute(reqTo) + endPoint;
     }
     public StringContent PrepareRequest(object dtoObject)
     {
         var dataContent = JsonSerializer.Serialize(dtoObject);
         return new StringContent(dataContent, Encoding.UTF8, "application/json");
     }
+}
+public enum RequestTo
+{
+    API = 0,
+    AZFunctions = 1
 }
