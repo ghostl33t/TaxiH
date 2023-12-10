@@ -1,3 +1,11 @@
 .vs/
 /TaxiHereAPI/obj/
 /TaxiHereAPI/bin/
+/TaxiHereMobile/obj/
+/TaxiHereMobile/bin/
+/TaxiHDbContext/bin/
+/TaxiHDbContext/obj/
+/TaxiHDataTransferObjects/bin/
+/TaxiHDataTransferObjects/obj/
+/TaxiHFunc/bin/
+/TaxiHFunc/obj/
