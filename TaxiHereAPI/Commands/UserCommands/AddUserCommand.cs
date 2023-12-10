@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using TaxiHereAPI.Models.DTO;
+using TaxiHDataTransferObjects.DTOs.UserRelated;
 
 namespace TaxiHereAPI.Commands.UserCommands;
 

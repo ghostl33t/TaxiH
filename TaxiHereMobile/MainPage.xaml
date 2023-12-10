@@ -10,7 +10,7 @@
             <Label Text="Taxi Here">
                 
             </Label>
-            <Button x:Name="btnLogin" Text="Login"></Button>
+            <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked"></Button>
             <Button x:Name="btnRegister" Text="Register" Clicked="btnRegister_Clicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
