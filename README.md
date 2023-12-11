@@ -45,7 +45,7 @@ The TaxiH application is intended for people who are in need of a taxi. The appl
 ### MIGRATIONS:
 #### CMD: 
 - ``` dotnet ef migrations add <MigrationName> ```
-- ``` dotnet ef database update --project <ProjectName> ``` 
+- ``` dotnet ef database update --project <ProjectName> --startup-project <ProjectName> --verbose ``` 
 ##### Tables
 - New Table: ``` dotnet ef migrations add <CT_TableName> ``` - CT For CreateTable
 - UpdatingTable: ``` dotnet ef migrations add <UT_TableName> ``` - UT For UpdateTable
