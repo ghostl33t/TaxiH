@@ -1,37 +1,36 @@
 using MediatR;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
-using TaxiHDataTransferObjects.DTOs.ReqResRelated;
+using Microsoft.Extensions.Logging;
 using TaxiHDataTransferObjects.DTOs.UserRelated;
 using TaxiHFunc.Commands;
 using TaxiHFunc.Queries.UserQueries;
 using TaxiHFunc.Services.TokensService;
 
 namespace TaxiHFunc.Functions;
-
-public class LoginFunction : ILoginFunction
+public class RefreshUserToken
 {
     private readonly IMediator _mediator;
     private readonly ITokenHandlerService _tokenHandlerService;
-    public LoginFunction(IMediator mediator, ITokenHandlerService tokenHandlerService)
+    public RefreshUserToken(IMediator mediator, ITokenHandlerService tokenHandlerService)
     {
         _mediator = mediator;
         _tokenHandlerService = tokenHandlerService;
     }
 
-    [Function("LoginFunction")]
-    public async Task<ResponseDTO> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] LoginDTO req)
+    [Function("RefreshUserToken")]
+    public async Task<TokenDTO> Run([HttpTrigger(AuthorizationLevel.Function, "post")][FromBody] TokenDTO req)
     {
-        var res = await _mediator.Send(new GetUserCredentialsQuery(req));
-        if (res.StatusCode == 200)
-        {
-            var token = await _tokenHandlerService.CreateTokenAsync(req);
-            
-            await WriteTokenForUser(req.Username, token);
+        var userLoginCreds = await _mediator.Send(new GetUserLoginCredentialsQuery(req));
+        if (userLoginCreds == null) 
+            return new TokenDTO { TokenValue = "", UserId = 0 };
 
-            res.Message = token;
-        }
-        
+        var token = await _tokenHandlerService.CreateTokenAsync(userLoginCreds);
+        await WriteTokenForUser(userLoginCreds.Username, token);
+
+        var res = req;
+        res.TokenValue = token;
+
         return res;
     }
     public async Task<bool> WriteTokenForUser(string userName, string token)
@@ -52,6 +51,6 @@ public class LoginFunction : ILoginFunction
             Console.WriteLine(ex.ToString());
             throw;
         }
-       
+
     }
 }

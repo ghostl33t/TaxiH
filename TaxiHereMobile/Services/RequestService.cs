@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System.Text;
-using System.Text.Json;
 
 namespace TaxiHereMobile.Services;
 
@@ -29,8 +29,16 @@ public class RequestService : IRequestService
     }
     public StringContent PrepareRequest(object dtoObject)
     {
-        var dataContent = JsonSerializer.Serialize(dtoObject);
-        return new StringContent(dataContent, Encoding.UTF8, "application/json");
+        try
+        {
+            var dataContent = JsonConvert.SerializeObject(dtoObject);
+            return new StringContent(dataContent, Encoding.UTF8, "application/json");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw;
+        }
     }
 }
 public enum RequestTo
