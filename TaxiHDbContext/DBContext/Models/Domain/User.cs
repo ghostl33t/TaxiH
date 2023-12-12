@@ -50,4 +50,9 @@ public class User
     [Column(TypeName = "datetime")]
     public DateTime CreatedAt { get; set; } = DateTime.Today;
     #endregion
+
+    #region Token
+    [Column(TypeName = "nvarchar(4000)")]
+    public string? Token { get; set; } = string.Empty;
+    #endregion
 }
