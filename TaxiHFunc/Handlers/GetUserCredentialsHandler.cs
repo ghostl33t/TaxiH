@@ -14,7 +14,7 @@ public class GetUserCredentialsHandler : IRequestHandler<GetUserCredentialsQuery
     }
     public async Task<ResponseDTO> Handle(GetUserCredentialsQuery request, CancellationToken cancellationToken)
     {
-        var loggedInStatus = await _userRepository.LoginUser(request.userCreds);
+        var loggedInStatus = await _userRepository.LoginUserAsync(request.userCreds);
         var res = new ResponseDTO();
         if (loggedInStatus)
         {
