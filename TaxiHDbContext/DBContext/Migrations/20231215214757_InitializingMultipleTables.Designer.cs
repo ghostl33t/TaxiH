@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaxiHDbContext.DBContext;
 
@@ -11,9 +12,11 @@ using TaxiHDbContext.DBContext;
 namespace TaxiHDbContext.DBContext.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231215214757_InitializingMultipleTables")]
+    partial class InitializingMultipleTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -290,15 +293,6 @@ namespace TaxiHDbContext.DBContext.Migrations
 
                     b.Property<long>("CompanyEmployeeId")
                         .HasColumnType("bigint");
-
-                    b.Property<DateTime?>("FinishTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime>("RequestDateTime")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime");
 
                     b.Property<long>("ZoneIdFrom")
                         .HasColumnType("bigint");
