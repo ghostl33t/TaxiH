@@ -80,8 +80,13 @@ public class LoginRegister : ILoginRegister
         {
             var res = await _httpClient.PostAsync(requestRoute, reqBody);
             var resMessage = await res.Content.ReadAsStringAsync();
-            userToken.TokenValue = resMessage; 
+            var tokenFromResponseMessage = Newtonsoft.Json.JsonConvert.DeserializeObject<TokenDTO>(resMessage);
 
+            if (tokenFromResponseMessage != null)
+                userToken = tokenFromResponseMessage;
+            else
+                Console.WriteLine("ERROR: Issue with refreshing user token!");
+            
             return userToken;
         }
         catch (Exception ex)
